@@ -1,0 +1,768 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LA HERENCIA | Rompope Artesanal</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: #fffaf3;
+            color: #49301f;
+        }
+
+        /* ENCABEZADO */
+
+        header {
+            background: #4b2e1f;
+            color: white;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .logo {
+            font-size: 30px;
+            font-weight: bold;
+            letter-spacing: 3px;
+        }
+
+        .logo span {
+            display: block;
+            font-size: 12px;
+            letter-spacing: 4px;
+            text-align: center;
+            color: #e7c89a;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            color: #e7c89a;
+        }
+
+        /* PORTADA */
+
+        .hero {
+            min-height: 480px;
+            padding: 70px 8%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            background: linear-gradient(120deg, #f4e4ce, #fffaf3);
+        }
+
+        .hero-text {
+            max-width: 550px;
+        }
+
+        .hero-text small {
+            color: #96683e;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-size: 55px;
+            line-height: 1.1;
+            margin: 20px 0;
+        }
+
+        .hero p {
+            font-size: 18px;
+            line-height: 1.7;
+            color: #73543d;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 14px 28px;
+            background: #6b422b;
+            color: white;
+            text-decoration: none;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #8c5b3b;
+            transform: translateY(-3px);
+        }
+
+        .hero-image {
+            font-size: 150px;
+            text-align: center;
+            min-width: 250px;
+        }
+
+        /* PRODUCTOS */
+
+        .productos {
+            padding: 70px 8%;
+            text-align: center;
+        }
+
+        .productos h2 {
+            font-size: 38px;
+            margin-bottom: 15px;
+        }
+
+        .descripcion {
+            color: #84664f;
+            margin-bottom: 40px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .producto {
+            background: white;
+            border-radius: 18px;
+            padding: 25px;
+            box-shadow: 0 5px 20px rgba(80, 50, 25, 0.08);
+            transition: 0.3s;
+        }
+
+        .producto:hover {
+            transform: translateY(-7px);
+        }
+
+        .producto-img {
+            background: #f4e5d1;
+            border-radius: 15px;
+            padding: 25px;
+            font-size: 90px;
+            margin-bottom: 20px;
+        }
+
+        .producto h3 {
+            font-size: 23px;
+            margin-bottom: 10px;
+        }
+
+        .producto p {
+            color: #84654e;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        .precio {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 20px 0;
+            color: #6b422b;
+        }
+
+        .producto button {
+            width: 100%;
+        }
+
+        /* NOSOTROS */
+
+        .nosotros {
+            background: #ead8c2;
+            padding: 70px 8%;
+            text-align: center;
+        }
+
+        .nosotros h2 {
+            font-size: 35px;
+            margin-bottom: 20px;
+        }
+
+        .nosotros p {
+            max-width: 750px;
+            margin: auto;
+            line-height: 1.9;
+            color: #634832;
+            font-size: 17px;
+        }
+
+        /* BENEFICIOS */
+
+        .beneficios {
+            padding: 60px 8%;
+            text-align: center;
+        }
+
+        .beneficios h2 {
+            font-size: 35px;
+            margin-bottom: 35px;
+        }
+
+        .beneficios-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .beneficio {
+            padding: 25px;
+        }
+
+        .beneficio .icono {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .beneficio h3 {
+            margin-bottom: 10px;
+        }
+
+        .beneficio p {
+            color: #84664e;
+            line-height: 1.6;
+        }
+
+        /* CARRITO */
+
+        .carrito {
+            background: white;
+            margin: 40px 8%;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px #00000010;
+        }
+
+        .carrito h2 {
+            margin-bottom: 20px;
+        }
+
+        #lista-carrito {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        #lista-carrito li {
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .total {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .vaciar {
+            background: #eee;
+            color: #49301f;
+            margin-left: 10px;
+        }
+
+        /* CONTACTO */
+
+        .contacto {
+            background: #4b2e1f;
+            color: white;
+            padding: 60px 8%;
+            text-align: center;
+        }
+
+        .contacto h2 {
+            font-size: 35px;
+            margin-bottom: 20px;
+        }
+
+        .contacto p {
+            line-height: 1.8;
+            color: #ead8c2;
+        }
+
+        footer {
+            background: #2c1b12;
+            color: #d8c2a8;
+            text-align: center;
+            padding: 20px;
+            font-size: 13px;
+        }
+
+        /* DISEÑO PARA CELULARES */
+
+        @media (max-width: 768px) {
+
+            header {
+                justify-content: center;
+                text-align: center;
+            }
+
+            nav a {
+                margin: 8px;
+                display: inline-block;
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .hero-image {
+                font-size: 110px;
+            }
+
+            .product-grid,
+            .beneficios-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .productos h2,
+            .nosotros h2,
+            .contacto h2 {
+                font-size: 30px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- ENCABEZADO -->
+
+    <header>
+
+        <div class="logo">
+            LA HERENCIA
+            <span>ROMPOPE ARTESANAL</span>
+        </div>
+
+        <nav>
+            <a href="#inicio">Inicio</a>
+            <a href="#productos">Productos</a>
+            <a href="#nosotros">Nosotros</a>
+            <a href="#contacto">Contacto</a>
+            <a href="#carrito">🛒 <span id="contador">0</span></a>
+        </nav>
+
+    </header>
+
+    <!-- PORTADA -->
+
+    <section class="hero" id="inicio">
+
+        <div class="hero-text">
+
+            <small>Tradición que se comparte</small>
+
+            <h1>El sabor de casa, en cada botella</h1>
+
+            <p>
+                Descubre LA HERENCIA, una bebida artesanal inspirada
+                en las recetas tradicionales, elaborada con dedicación,
+                ingredientes seleccionados y un toque especial de
+                tradición familiar.
+            </p>
+
+            <a href="#productos" class="btn">
+                Descubre nuestros productos
+            </a>
+
+        </div>
+
+        <div class="hero-image">
+            🥛
+        </div>
+
+    </section>
+
+    <!-- PRODUCTOS -->
+
+    <section class="productos" id="productos">
+
+        <h2>Nuestros productos</h2>
+
+        <p class="descripcion">
+            Encuentra tu presentación favorita y disfruta
+            de un sabor artesanal.
+        </p>
+
+        <div class="product-grid">
+
+            <!-- PRODUCTO 1 -->
+
+            <div class="producto">
+
+                <div class="producto-img">🍶</div>
+
+                <h3>Rompope Tradicional</h3>
+
+                <p>
+                    Una bebida cremosa con sabor a vainilla,
+                    inspirada en la tradición de nuestras familias.
+                </p>
+
+                <div class="precio">$120.00</div>
+
+                <button class="btn"
+                    onclick="agregarProducto(0)">
+                    Agregar al carrito
+                </button>
+
+            </div>
+
+            <!-- PRODUCTO 2 -->
+
+            <div class="producto">
+
+                <div class="producto-img">🥛</div>
+
+                <h3>Rompope de Nuez</h3>
+
+                <p>
+                    Una combinación cremosa con un delicioso
+                    toque de nuez para disfrutar en cualquier ocasión.
+                </p>
+
+                <div class="precio">$150.00</div>
+
+                <button class="btn"
+                    onclick="agregarProducto(1)">
+                    Agregar al carrito
+                </button>
+
+            </div>
+
+            <!-- PRODUCTO 3 -->
+
+            <div class="producto">
+
+                <div class="producto-img">🎁</div>
+
+                <h3>Presentación Especial</h3>
+
+                <p>
+                    Una presentación especial para compartir
+                    momentos únicos con familiares y amigos.
+                </p>
+
+                <div class="precio">$200.00</div>
+
+                <button class="btn"
+                    onclick="agregarProducto(2)">
+                    Agregar al carrito
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- NOSOTROS -->
+
+    <section class="nosotros" id="nosotros">
+
+        <h2>Nuestra historia</h2>
+
+        <p>
+            En LA HERENCIA creemos que los mejores sabores nacen
+            de las tradiciones que pasan de generación en generación.
+            Nuestra inspiración es ofrecer una experiencia artesanal
+            que recuerde los momentos especiales de la familia,
+            utilizando ingredientes seleccionados y dedicación
+            en cada preparación.
+            <br><br>
+            Queremos compartir contigo el sabor de nuestras raíces,
+            creando productos que conviertan cada momento
+            en un recuerdo especial.
+        </p>
+
+    </section>
+
+    <!-- BENEFICIOS -->
+
+    <section class="beneficios">
+
+        <h2>¿Por qué elegir LA HERENCIA?</h2>
+
+        <div class="beneficios-grid">
+
+            <div class="beneficio">
+
+                <div class="icono">🌿</div>
+
+                <h3>Ingredientes seleccionados</h3>
+
+                <p>
+                    Elaboramos nuestros productos con
+                    ingredientes cuidadosamente seleccionados.
+                </p>
+
+            </div>
+
+            <div class="beneficio">
+
+                <div class="icono">❤️</div>
+
+                <h3>Tradición familiar</h3>
+
+                <p>
+                    Cada producto está inspirado en
+                    el sabor y la calidez de nuestras raíces.
+                </p>
+
+            </div>
+
+            <div class="beneficio">
+
+                <div class="icono">🎁</div>
+
+                <h3>Ideal para compartir</h3>
+
+                <p>
+                    Una opción especial para regalar
+                    y disfrutar en momentos importantes.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- CARRITO -->
+
+    <section class="carrito" id="carrito">
+
+        <h2>🛒 Tu carrito de compras</h2>
+
+        <ul id="lista-carrito">
+            <li>Tu carrito está vacío.</li>
+        </ul>
+
+        <p class="total">
+            Total: $<span id="total">0.00</span>
+        </p>
+
+        <button class="btn" onclick="comprarWhatsApp()">
+            Realizar pedido por WhatsApp
+        </button>
+
+        <button class="btn vaciar" onclick="vaciarCarrito()">
+            Vaciar carrito
+        </button>
+
+    </section>
+
+    <!-- CONTACTO -->
+
+    <section class="contacto" id="contacto">
+
+        <h2>¡Queremos conocerte!</h2>
+
+        <p>
+            ¿Tienes alguna pregunta sobre nuestros productos?
+            <br>
+            Escríbenos y con gusto te atenderemos.
+        </p>
+
+        <a href="https://wa.me/524771234567"
+           class="btn"
+           target="_blank">
+            Contactar por WhatsApp
+        </a>
+
+    </section>
+
+    <!-- PIE DE PAGINA -->
+
+    <footer>
+
+        <p>
+            © 2026 LA HERENCIA | Rompope Artesanal
+        </p>
+
+        <p>
+            Tradición, sabor y momentos especiales.
+        </p>
+
+    </footer>
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        // PRODUCTOS
+
+        const productos = [
+            {
+                nombre: "Rompope Tradicional",
+                precio: 120
+            },
+            {
+                nombre: "Rompope de Nuez",
+                precio: 150
+            },
+            {
+                nombre: "Presentación Especial",
+                precio: 200
+            }
+        ];
+
+        // CARRITO
+
+        let carrito = [];
+
+        // AGREGAR PRODUCTOS
+
+        function agregarProducto(index) {
+
+            const producto = productos[index];
+
+            carrito.push(producto);
+
+            actualizarCarrito();
+
+            alert("¡Producto agregado al carrito!");
+
+        }
+
+        // ACTUALIZAR CARRITO
+
+        function actualizarCarrito() {
+
+            const lista = document.getElementById("lista-carrito");
+
+            const total = document.getElementById("total");
+
+            const contador = document.getElementById("contador");
+
+            lista.innerHTML = "";
+
+            let suma = 0;
+
+            carrito.forEach((producto, index) => {
+
+                suma += producto.precio;
+
+                const li = document.createElement("li");
+
+                li.innerHTML = `
+                    <span>
+                        ${producto.nombre}
+                        - $${producto.precio.toFixed(2)}
+                    </span>
+
+                    <button onclick="eliminarProducto(${index})">
+                        ❌
+                    </button>
+                `;
+
+                lista.appendChild(li);
+
+            });
+
+            if (carrito.length === 0) {
+
+                lista.innerHTML = "<li>Tu carrito está vacío.</li>";
+
+            }
+
+            total.textContent = suma.toFixed(2);
+
+            contador.textContent = carrito.length;
+
+        }
+
+        // ELIMINAR PRODUCTO
+
+        function eliminarProducto(index) {
+
+            carrito.splice(index, 1);
+
+            actualizarCarrito();
+
+        }
+
+        // VACIAR CARRITO
+
+        function vaciarCarrito() {
+
+            carrito = [];
+
+            actualizarCarrito();
+
+        }
+
+        // REALIZAR PEDIDO POR WHATSAPP
+
+        function comprarWhatsApp() {
+
+            if (carrito.length === 0) {
+
+                alert("Agrega productos a tu carrito primero.");
+
+                return;
+
+            }
+
+            let mensaje = "Hola, quiero realizar un pedido de LA HERENCIA:%0A%0A";
+
+            let total = 0;
+
+            carrito.forEach(producto => {
+
+                mensaje +=
+                    "- " + producto.nombre +
+                    " ($" + producto.precio.toFixed(2) + ")%0A";
+
+                total += producto.precio;
+
+            });
+
+            mensaje +=
+                "%0ATotal: $" + total.toFixed(2);
+
+            mensaje +=
+                "%0A%0A¿Me pueden proporcionar información sobre mi pedido?";
+
+            // CAMBIA ESTE NUMERO POR EL WHATSAPP DE TU NEGOCIO
+
+            const telefono = "524771234567";
+
+            const url =
+                "https://wa.me/" +
+                telefono +
+                "?text=" +
+                mensaje;
+
+            window.open(url, "_blank");
+
+        }
+
+    </script>
+
+</body>
+</html>
